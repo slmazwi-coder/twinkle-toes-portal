@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as MerchandiseRouteImport } from './routes/merchandise'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FeesRouteImport } from './routes/fees'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const ProgramsRoute = ProgramsRouteImport.update({
 const MerchandiseRoute = MerchandiseRouteImport.update({
   id: '/merchandise',
   path: '/merchandise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeesRoute = FeesRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fees': typeof FeesRoute
+  '/gallery': typeof GalleryRoute
   '/merchandise': typeof MerchandiseRoute
   '/programs': typeof ProgramsRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fees': typeof FeesRoute
+  '/gallery': typeof GalleryRoute
   '/merchandise': typeof MerchandiseRoute
   '/programs': typeof ProgramsRoute
 }
@@ -60,21 +68,36 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fees': typeof FeesRoute
+  '/gallery': typeof GalleryRoute
   '/merchandise': typeof MerchandiseRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/fees' | '/merchandise' | '/programs'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/fees'
+    | '/gallery'
+    | '/merchandise'
+    | '/programs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/fees' | '/merchandise' | '/programs'
-  id: '__root__' | '/' | '/about' | '/fees' | '/merchandise' | '/programs'
+  to: '/' | '/about' | '/fees' | '/gallery' | '/merchandise' | '/programs'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/fees'
+    | '/gallery'
+    | '/merchandise'
+    | '/programs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   FeesRoute: typeof FeesRoute
+  GalleryRoute: typeof GalleryRoute
   MerchandiseRoute: typeof MerchandiseRoute
   ProgramsRoute: typeof ProgramsRoute
 }
@@ -93,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/merchandise'
       fullPath: '/merchandise'
       preLoaderRoute: typeof MerchandiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fees': {
@@ -123,6 +153,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   FeesRoute: FeesRoute,
+  GalleryRoute: GalleryRoute,
   MerchandiseRoute: MerchandiseRoute,
   ProgramsRoute: ProgramsRoute,
 }
