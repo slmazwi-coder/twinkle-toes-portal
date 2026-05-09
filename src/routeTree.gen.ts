@@ -13,6 +13,7 @@ import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as MerchandiseRouteImport } from './routes/merchandise'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FeesRouteImport } from './routes/fees'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const FeesRoute = FeesRouteImport.update({
   path: '/fees',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/fees': typeof FeesRoute
   '/gallery': typeof GalleryRoute
   '/merchandise': typeof MerchandiseRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/fees': typeof FeesRoute
   '/gallery': typeof GalleryRoute
   '/merchandise': typeof MerchandiseRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/fees': typeof FeesRoute
   '/gallery': typeof GalleryRoute
   '/merchandise': typeof MerchandiseRoute
@@ -77,16 +86,25 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/contact'
     | '/fees'
     | '/gallery'
     | '/merchandise'
     | '/programs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/fees' | '/gallery' | '/merchandise' | '/programs'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/fees'
+    | '/gallery'
+    | '/merchandise'
+    | '/programs'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/contact'
     | '/fees'
     | '/gallery'
     | '/merchandise'
@@ -96,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   FeesRoute: typeof FeesRoute
   GalleryRoute: typeof GalleryRoute
   MerchandiseRoute: typeof MerchandiseRoute
@@ -132,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -152,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   FeesRoute: FeesRoute,
   GalleryRoute: GalleryRoute,
   MerchandiseRoute: MerchandiseRoute,
