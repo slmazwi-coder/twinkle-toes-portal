@@ -27,7 +27,7 @@ export function SiteFooter() {
         <div>
           <div className="mb-3 text-sm font-bold uppercase tracking-widest text-accent">Explore</div>
           <ul className="space-y-2 text-sm">
-            {[["/about","About"],["/programs","Programs"],["/fees","Fees"],["/merchandise","Shop"],["/gallery","Gallery"],["/contact","Enrol"]].map(([to,label]) => (
+            {[["/about","About"],["/programs","Programs"],["/fees","Fees"],["/merchandise","Shop"],["/gallery","Gallery"],["/apply","Apply"],["/contact","Contact"]].map(([to,label]) => (
               <li key={to}><Link to={to} className="text-primary-foreground/85 hover:text-accent">{label}</Link></li>
             ))}
           </ul>
