@@ -113,7 +113,7 @@ function Index() {
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
         <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-secondary to-accent p-10 text-center md:p-16">
-          <img src={books} alt="" className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-3xl object-cover opacity-30" aria-hidden />
+          <img src={books} alt="" className="pointer-events-none absolute -right-10 -top-10 hidden h-56 w-56 rounded-3xl object-cover opacity-30 md:block" aria-hidden />
           <h2 className="font-display text-4xl font-bold text-primary md:text-5xl">Ready to join our family?</h2>
           <p className="mx-auto mt-3 max-w-xl text-primary/85">Limited spaces available. Pop in for a tour or send us a quick message.</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
