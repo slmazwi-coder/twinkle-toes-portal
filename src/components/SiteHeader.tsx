@@ -11,6 +11,7 @@ const links = [
   { to: "/merchandise", label: "Shop" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
+  { to: "/apply", label: "Apply" },
 ] as const;
 
 export function SiteHeader() {
@@ -37,8 +38,8 @@ export function SiteHeader() {
               {l.label}
             </Link>
           ))}
-          <Link to="/contact" className="ml-2 rounded-full bg-secondary px-5 py-2 text-sm font-bold text-secondary-foreground shadow-md shadow-secondary/30 transition hover:brightness-110">
-            Enrol Now
+          <Link to="/apply" className="ml-2 rounded-full bg-secondary px-5 py-2 text-sm font-bold text-secondary-foreground shadow-md shadow-secondary/30 transition hover:brightness-110">
+            Apply Now
           </Link>
         </nav>
         <button onClick={() => setOpen(!open)} className="rounded-full p-2 text-primary lg:hidden" aria-label="Toggle menu">

@@ -74,7 +74,7 @@ function Fees() {
           <li>· Uniform & branded merchandise sold separately (see Shop)</li>
           <li>· Sibling discount available — chat to us</li>
         </ul>
-        <Link to="/contact" className="mt-6 inline-flex rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground hover:brightness-110">Request a fee schedule</Link>
+        <Link to="/apply" className="mt-6 inline-flex rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground hover:brightness-110">Apply Now</Link>
       </div>
     </div>
   );

@@ -117,7 +117,7 @@ function Index() {
           <h2 className="font-display text-4xl font-bold text-primary md:text-5xl">Ready to join our family?</h2>
           <p className="mx-auto mt-3 max-w-xl text-primary/85">Limited spaces available. Pop in for a tour or send us a quick message.</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="rounded-full bg-primary px-8 py-3.5 font-bold text-primary-foreground shadow-lg transition hover:brightness-110">Enrol Today</Link>
+            <Link to="/apply" className="rounded-full bg-primary px-8 py-3.5 font-bold text-primary-foreground shadow-lg transition hover:brightness-110">Apply Now</Link>
             <Link to="/fees" className="rounded-full border-2 border-primary px-8 py-3.5 font-bold text-primary transition hover:bg-primary hover:text-primary-foreground">View Fees</Link>
           </div>
         </div>
